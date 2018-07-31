@@ -7,7 +7,7 @@ import { auth, db } from '../../firebase'
 import * as routes from '../../constants/routes'
 
 const SignUpPage = ({ history }) =>
-    <div>
+    <div className="sign-page">
         <h1>SignUp</h1>
         <SignUpForm history={history} />
     </div>
@@ -72,35 +72,39 @@ class SignUpForm extends Component {
             username === ''
 
         return (
-            <form onSubmit={this.onSubmit} class="sign-form">
+            <form onSubmit={this.onSubmit} className="sign-form">
                 <input
                     type="text"
                     value={username}
                     onChange={event => this.setState(byPropKey('username', event.target.value))}
                     placeholder="Full Name"
+                    className="input is-primary"
                 />
                 <input
                     type="text"
                     value={email}
                     onChange={event => this.setState(byPropKey('email', event.target.value))}
                     placeholder="Email Address"
+                    className="input is-primary"
                 />
                 <input
                     type="password"
                     value={passwordOne}
                     onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
                     placeholder="Password"
+                    className="input is-primary"
                 />
                 <input
                     type="password"
                     value={passwordTwo}
                     onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
                     placeholder="Confirm Password"
+                    className="input is-primary"
                 />
-                <button type="submit" disabled={isInvalid}>
+                <button type="submit" disabled={isInvalid} className="button is-link">
                     Sign Up
                 </button>
-                { error && <p>{error.message}</p> }
+                { error && <p style={{color: 'red'}}>{error.message}</p> }
             </form>
         )
     }

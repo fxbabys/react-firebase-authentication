@@ -20,7 +20,7 @@ class HomePage extends React.Component {
     render () {
         const { users } = this.state
         return (
-            <div>
+            <div className="sign-page">
                 <h1>Home</h1>
                 <p>The Home Page is accessible by every signed in user.</p>
                 { !!users && <UserList users={users} /> }
@@ -30,8 +30,8 @@ class HomePage extends React.Component {
 }
 
 const UserList = ({ users }) =>
-    <div>
-        <h2>List of Usernames of Users</h2>
+    <div className="user-list">
+        <h2>List of Usernames of Users: </h2>
         <p>(Saved on Sign Up in Firebase Database)</p>
 
         {Object.keys(users).map(key =>

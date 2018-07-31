@@ -45,23 +45,26 @@ class PasswordChangeForm extends React.Component {
             passwordOne === ''
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="sign-form">
                 <input
                     type="password"
                     value={passwordOne}
                     onChange={event => this.setState(byPropkey('passwordOne', event.target.value))}
                     placeholder="New Password"
+                    className="input is-primary"
                 />
                 <input
                     type="password"
                     value={passwordTwo}
                     onChange={event => this.setState(byPropkey('passwordTwo', event.target.value))}
+                    placeholder = "Confirm Password"
+                    className="input is-primary"
                 />
-                <button disabled={isInvalid} type="submit">
+                <button disabled={isInvalid} type="submit" className="button is-link">
                     Reset My Password
                 </button>
 
-                { error && <p>{error.message}</p> }
+                { error && <p style={{color: 'red'}}>{error.message}</p> }
             </form>
         )
     }

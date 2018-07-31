@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { auth } from '../../firebase'
 
 const PasswordForgetPage = () =>
-    <div>
+    <div className="sign-page">
         <h1>PasswordForget</h1>
         <PasswordForgetForm />
     </div>
@@ -47,18 +47,19 @@ class PasswordForgetForm extends Component {
         const isInvalid = email === ''
 
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="sign-form">
                 <input
                     type="text"
                     value={this.state.email}
                     onChange={event => this.setState(byProKey('email', event.target.value))}
                     placeholder="Email Address"
+                    className="input is-primary"
                 />
-                <button disabled={isInvalid} type="submit">
+                <button disabled={isInvalid} type="submit" className="button is-link">
                     Reset My Password
                 </button>
 
-                { error && <p>{error.message}</p> }
+                { error && <p style={{color: 'red'}}>{error.message}</p> }
             </form>
         )
     }

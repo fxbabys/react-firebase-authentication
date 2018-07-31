@@ -6,7 +6,7 @@ import { PasswordForgetLink } from '../PasswordForget'
 import { auth } from '../../firebase'
 import * as routes from '../../constants/routes'
 
-import './index.css'
+// import './index.css'
 
 const SignInPage = ({ history }) =>
     <div className="sign-page">
@@ -83,7 +83,7 @@ class SignInForm extends Component {
                     Sign In
                 </button>
 
-                { error && <p>{error.message}</p> }
+                { error && <p style={{color: 'red'}}>{error.message}</p> }
             </form>
         )
     }
